@@ -14,10 +14,9 @@
 !/tmp/.keep
 
 # Ignore pidfiles, but keep the directory.
-/tmp/pids/*
 !/tmp/pids/
 !/tmp/pids/.keep
-
+/tmp/pids/*
 
 /public/assets
 .byebug_history
