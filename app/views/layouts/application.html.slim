@@ -8,4 +8,8 @@ html
     = stylesheet_link_tag 'application', media: 'all'
 
   body
-    = yield
+    header.navbar.navbar-expand-sm.navbar-light.bg-light
+      p MonthlyDiary
+      = button_to 'login with GitHub', '/auth/github', method: :post
+    .container
+      = yield
