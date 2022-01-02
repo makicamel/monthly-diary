@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   validates :provider, :uid, :name, :image_url, presence: true
+  validates :provider, inclusion: [:github]
 
   def self.find_or_create_from_auth_hash!(auth_hash)
     provider = auth_hash[:provider]
