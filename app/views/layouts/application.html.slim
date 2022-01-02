@@ -15,6 +15,9 @@ html
       - else
         = button_to 'login with GitHub', '/auth/github', method: :post
     .container
+      - if flash.alert
+        .alert.alert-danger
+          = flash.alert
       - if flash.notice
         .alert.alert-success
           = flash.notice
