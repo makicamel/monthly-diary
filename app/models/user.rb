@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :notes
   validates :provider, inclusion: ['github'], presence: true
   validates :uid, :name, :image_url, length: { maximum: 255 }, presence: true
   validates :image_url, length: { maximum: 255 }, format: { with: %r{\Ahttps://.*\z} }
