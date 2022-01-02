@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_190615) do
+ActiveRecord::Schema.define(version: 2022_01_02_072035) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "notes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "contents", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_notes_on_user_id"
+  end
+
+  create_table "rainy_days", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "date"], name: "index_rainy_days_on_user_id_and_date", unique: true
+    t.index ["user_id"], name: "index_rainy_days_on_user_id"
+  end
+
+  create_table "starry_days", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.date "date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "date"], name: "index_starry_days_on_user_id_and_date", unique: true
+    t.index ["user_id"], name: "index_starry_days_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", null: false
@@ -25,4 +51,7 @@ ActiveRecord::Schema.define(version: 2021_12_06_190615) do
     t.index ["provider", "uid"], name: "index_users_on_provider_and_uid", unique: true
   end
 
+  add_foreign_key "notes", "users"
+  add_foreign_key "rainy_days", "users"
+  add_foreign_key "starry_days", "users"
 end
