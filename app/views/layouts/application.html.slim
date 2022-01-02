@@ -10,7 +10,10 @@ html
   body
     header.navbar.navbar-expand-sm.navbar-light.bg-light
       p MonthlyDiary
-      = button_to 'login with GitHub', '/auth/github', method: :post
+      - if logged_in?
+        = button_to 'logout', logout_path, method: :delete
+      - else
+        = button_to 'login with GitHub', '/auth/github', method: :post
     .container
       - if flash.notice
         .alert.alert-success

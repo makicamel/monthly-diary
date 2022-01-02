@@ -4,4 +4,9 @@ class SessionsController < ApplicationController
     session[:user_id] = user.id
     redirect_to root_path, notice: 'logged in'
   end
+
+  def destroy
+    reset_session
+    redirect_to root_path, notice: 'logged out'
+  end
 end
