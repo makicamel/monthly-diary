@@ -12,4 +12,8 @@ html
       p MonthlyDiary
       = button_to 'login with GitHub', '/auth/github', method: :post
     .container
+      - if flash.notice
+        .alert.alert-success
+          = flash.notice
+    .container
       = yield
