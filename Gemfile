@@ -19,7 +19,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'byebug'
   gem 'listen', '~> 3.3'
 end
 
