@@ -1,0 +1,15 @@
+<table>
+  <% @notes.each do |note| %>
+    <tr>
+      <%= tag.td note.created_at %>
+      <%= tag.td note.contents %>
+    </tr>
+  <% end %>
+</table>
+
+<%= form_with(model: Note.new) do |f| %>
+  <div>
+    <%= f.label :contents %>
+    <%= f.text_area :contents, class: 'form-control' %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

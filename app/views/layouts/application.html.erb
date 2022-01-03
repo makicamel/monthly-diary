@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>MonthlyDiary</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
+  </head>
+
+  <body>
+    <p>MonthlyDiary</p>
+      <% if logged_in? %>
+        <%= button_to 'logout', logout_path, method: :delete %>
+      <% else %>
+        <%= button_to 'login with GitHub', '/auth/github', method: :post %>
+      <% end %>
+    <div>
+      <% if flash.alert %>
+        <%= flash.alert %>
+      <% end %>
+      <% if flash.notice %>
+        <%= flash.notice %>
+      <% end %>
+    </div>
+
+    <%= yield %>
+
+    <%= javascript_pack_tag 'application' %>
+  </body>
+</html>
