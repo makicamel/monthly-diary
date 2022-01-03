@@ -10,7 +10,6 @@ gem 'omniauth-rails_csrf_protection'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
-gem 'slim-rails'
 gem 'webpacker'
 
 group :development, :test do
